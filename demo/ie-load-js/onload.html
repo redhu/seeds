@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+var head = document.getElementsByTagName('head')[0];
+function loadjs(src){
+	var node = document.createElement("script");
+	node.src = src;
+	head.appendChild(node);
+	node.onload = node.onerror = node.onreadystatechange = function() {
+	    // Ensure only run once and handle memory leak in IE
+	    node.onload = node.odomor = node.onreadystatechange = null;
+
+
+	    // Dereference the node
+	    node = undefined;
+	    
+	    var dom = document.createElement('p');
+	    dom.innerHTML = 'html-create-'+src;
+	    document.body.appendChild(dom);
+	};
+}
+loadjs('append0.js');
+loadjs('append1.js');
+loadjs('append2.js');
+</script>
+</html>
